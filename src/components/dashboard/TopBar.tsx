@@ -15,31 +15,32 @@ interface TopBarProps {
   onTimelineChange: (t: string) => void;
   onScenarioChange: (s: string) => void;
   onRunSimulation: () => void;
+  onCompare: () => void;
 }
 
 export function TopBar({
   selectedRegion, selectedTimeline, selectedScenario,
   isSimulating, simulationComplete, systemRiskScore,
-  onRegionChange, onTimelineChange, onScenarioChange, onRunSimulation,
+  onRegionChange, onTimelineChange, onScenarioChange, onRunSimulation, onCompare,
 }: TopBarProps) {
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="glass-panel-strong px-4 py-2.5 flex items-center gap-4 z-50"
+      className="glass-panel-strong px-4 py-2.5 flex items-center gap-2 sm:gap-4 z-50 relative flex-wrap"
     >
       <div className="flex items-center gap-2 mr-auto">
-        <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center breathing-glow">
           <Globe className="w-4 h-4 text-primary" />
         </div>
         <div>
           <h1 className="text-sm font-semibold tracking-wide text-foreground">ATLAS SANCTUM</h1>
-          <p className="text-[10px] text-muted-foreground tracking-widest uppercase">7 Pillar Command Interface</p>
+          <p className="text-[10px] text-muted-foreground tracking-widest uppercase hidden sm:block">7 Pillar Command Interface</p>
         </div>
       </div>
 
       <Select value={selectedRegion} onValueChange={onRegionChange}>
-        <SelectTrigger className="w-[130px] h-8 text-xs bg-secondary border-border/50">
+        <SelectTrigger className="w-[100px] sm:w-[130px] h-8 text-xs bg-secondary border-border/50">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -48,7 +49,7 @@ export function TopBar({
       </Select>
 
       <Select value={selectedTimeline} onValueChange={onTimelineChange}>
-        <SelectTrigger className="w-[100px] h-8 text-xs bg-secondary border-border/50">
+        <SelectTrigger className="w-[80px] sm:w-[100px] h-8 text-xs bg-secondary border-border/50">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -57,7 +58,7 @@ export function TopBar({
       </Select>
 
       <Select value={selectedScenario} onValueChange={onScenarioChange}>
-        <SelectTrigger className="w-[180px] h-8 text-xs bg-secondary border-border/50">
+        <SelectTrigger className="w-[140px] sm:w-[180px] h-8 text-xs bg-secondary border-border/50">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
@@ -76,12 +77,13 @@ export function TopBar({
         ) : (
           <Play className="w-3.5 h-3.5" />
         )}
-        {isSimulating ? 'Simulating...' : 'Run Simulation'}
+        <span className="hidden sm:inline">{isSimulating ? 'Simulating...' : 'Run Simulation'}</span>
+        <span className="sm:hidden">{isSimulating ? '...' : 'Run'}</span>
       </Button>
 
-      <Button variant="outline" size="sm" className="h-8 text-xs gap-1.5 border-border/50">
+      <Button variant="outline" size="sm" onClick={onCompare} className="h-8 text-xs gap-1.5 border-border/50">
         <GitCompare className="w-3.5 h-3.5" />
-        Compare
+        <span className="hidden sm:inline">Compare</span>
       </Button>
 
       <div className="flex items-center gap-2 ml-2">

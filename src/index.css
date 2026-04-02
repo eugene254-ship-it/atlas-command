@@ -127,4 +127,22 @@
     background: hsl(222 20% 25%);
     border-radius: 4px;
   }
+
+  .breathing-glow {
+    animation: breathing 4s ease-in-out infinite;
+  }
+
+  @keyframes breathing {
+    0%, 100% { box-shadow: 0 0 8px hsl(210 60% 50% / 0.15); }
+    50% { box-shadow: 0 0 20px hsl(210 60% 50% / 0.35); }
+  }
+
+  .node-pulse-critical {
+    animation: nodePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { filter: drop-shadow(0 0 4px hsl(0 72% 51% / 0.3)); }
+    50% { filter: drop-shadow(0 0 12px hsl(0 72% 51% / 0.6)); }
+  }
 }

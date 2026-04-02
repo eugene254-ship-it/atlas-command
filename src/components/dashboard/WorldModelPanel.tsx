@@ -100,8 +100,9 @@ function RealityView({ nodes, connections, activeOverlays }: { nodes: WorldNode[
 
           return (
             <g key={node.id} onMouseEnter={() => setHoveredNode(node.id)} onMouseLeave={() => setHoveredNode(null)} className="cursor-pointer">
-              <circle cx={node.x} cy={node.y} r={size + 2} fill={statusColor} opacity={0.15}>
-                <animate attributeName="r" values={`${size + 1};${size + 3};${size + 1}`} dur="3s" repeatCount="indefinite" />
+              <circle cx={node.x} cy={node.y} r={size + 2} fill={statusColor} opacity={0.15} className={node.status === 'critical' ? 'node-pulse-critical' : ''}>
+                <animate attributeName="r" values={`${size + 1};${size + 3};${size + 1}`} dur={node.status === 'critical' ? '1.5s' : '3s'} repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.1;0.25;0.1" dur={node.status === 'critical' ? '1.5s' : '3s'} repeatCount="indefinite" />
               </circle>
               <circle cx={node.x} cy={node.y} r={size} fill={statusColor} opacity={0.8} />
               <circle cx={node.x} cy={node.y} r={size * 0.4} fill="hsl(210 20% 90%)" />
