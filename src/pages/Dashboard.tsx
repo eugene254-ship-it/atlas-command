@@ -252,5 +252,6 @@ export default function Dashboard() {
         onScenarioChange={setScenario}
         isSimulating={state.isSimulating}
       />
+    </div>
   );
 }
