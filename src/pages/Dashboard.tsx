@@ -242,6 +242,15 @@ export default function Dashboard() {
       </AnimatePresence>
 
       <ComparisonModal open={comparisonOpen} onClose={() => setComparisonOpen(false)} />
-    </div>
+
+      <CommandPalette
+        onSelectPillar={setSelectedPillar}
+        onRunSimulation={runSimulation}
+        onCompare={openCompare}
+        onToggleFocusMode={toggleFocusMode}
+        onToggleOverlay={toggleOverlay}
+        onScenarioChange={setScenario}
+        isSimulating={state.isSimulating}
+      />
   );
 }
