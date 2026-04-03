@@ -10,6 +10,7 @@ import { MissionExecutionPanel } from '@/components/dashboard/MissionExecutionPa
 import { PillarDetailDrawer } from '@/components/dashboard/PillarDetailDrawer';
 import { ComparisonModal } from '@/components/dashboard/ComparisonModal';
 import { AmbientParticles } from '@/components/dashboard/AmbientParticles';
+import { CommandPalette } from '@/components/dashboard/CommandPalette';
 import { useDashboardState } from '@/hooks/useDashboardState';
 import { useAlertNotifications } from '@/hooks/useAlertNotifications';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
@@ -128,6 +129,7 @@ export default function Dashboard() {
               <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">C</kbd> Compare</p>
               <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">F</kbd> Focus mode</p>
               <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">Esc</kbd> Close panel</p>
+              <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">⌘K</kbd> Command palette</p>
             </TooltipContent>
           </Tooltip>
         </div>
@@ -241,6 +243,16 @@ export default function Dashboard() {
       </AnimatePresence>
 
       <ComparisonModal open={comparisonOpen} onClose={() => setComparisonOpen(false)} />
+
+      <CommandPalette
+        onSelectPillar={setSelectedPillar}
+        onRunSimulation={runSimulation}
+        onCompare={openCompare}
+        onToggleFocusMode={toggleFocusMode}
+        onToggleOverlay={toggleOverlay}
+        onScenarioChange={setScenario}
+        isSimulating={state.isSimulating}
+      />
     </div>
   );
 }
