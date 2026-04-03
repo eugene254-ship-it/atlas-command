@@ -28,7 +28,7 @@ export function PillarCard({ pillar, isSelected, onClick }: PillarCardProps) {
       <div className="flex items-center gap-2 mb-1.5">
         <Icon className={`w-3.5 h-3.5 ${config.colorClass}`} />
         <span className="text-[11px] font-medium text-foreground tracking-wide uppercase">{pillar.name}</span>
-        <span className="ml-auto font-mono text-sm font-semibold text-foreground">{pillar.score}</span>
+        <AnimatedScore value={pillar.score} className="ml-auto text-sm text-foreground" />
       </div>
 
       <div className="flex items-center gap-2">
