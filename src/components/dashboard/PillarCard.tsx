@@ -3,6 +3,7 @@ import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { Area, AreaChart, ResponsiveContainer } from 'recharts';
 import type { Pillar, PillarId } from '@/types/dashboard';
 import { pillarConfig } from '@/lib/dashboardConfig';
+import { AnimatedScore } from './AnimatedScore';
 
 interface PillarCardProps {
   pillar: Pillar;
