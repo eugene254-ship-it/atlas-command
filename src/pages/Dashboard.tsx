@@ -129,6 +129,7 @@ export default function Dashboard() {
               <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">C</kbd> Compare</p>
               <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">F</kbd> Focus mode</p>
               <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">Esc</kbd> Close panel</p>
+              <p><kbd className="px-1 py-0.5 bg-secondary rounded text-[9px] font-mono">⌘K</kbd> Command palette</p>
             </TooltipContent>
           </Tooltip>
         </div>
