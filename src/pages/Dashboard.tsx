@@ -10,6 +10,7 @@ import { MissionExecutionPanel } from '@/components/dashboard/MissionExecutionPa
 import { PillarDetailDrawer } from '@/components/dashboard/PillarDetailDrawer';
 import { ComparisonModal } from '@/components/dashboard/ComparisonModal';
 import { AmbientParticles } from '@/components/dashboard/AmbientParticles';
+import { CommandPalette } from '@/components/dashboard/CommandPalette';
 import { useDashboardState } from '@/hooks/useDashboardState';
 import { useAlertNotifications } from '@/hooks/useAlertNotifications';
 import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
